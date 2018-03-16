@@ -1,5 +1,8 @@
-from mcpi.minecraft import Minecraft
+"""This program will create of completely flat world and will also create a soccer field on the flat world"""
+"""Created by: Brandon Witt"""
+from mcpi.minecraft import Minecraft 
 mc = Minecraft.create()
+#Creates flat world
 import sys
 import mcpi.minecraft as minecraft
 import mcpi.block as block
@@ -20,7 +23,7 @@ x = 0.0
 y = 1.0
 z = 0.0
 mc.player.setPos(x, y, z)
-
+#Creates field
 pos = mc.player.getPos()
 x = pos.x
 y = pos.y
@@ -31,7 +34,7 @@ blockType = 35
 air = 2
 mc.setBlocks(x, y - 1, z, x + width, y - 1, z + length, blockType)
 mc.setBlocks(x + 1, y - 1, z + 1, x + width - 1, y - 1, z + length - 1,air)
-
+#Creates goals
 blocks = [[[42, 42, 42, 42, 42, 42, 42, 42], [42, 0, 0, 0, 0, 0, 0, 42], [42, 0, 0, 0, 0, 0, 0, 42], [42, 0, 0, 0, 0, 0, 0, 42]],
           [[30, 30, 30, 30, 30, 30, 30, 30], [30, 30, 30, 30, 30, 30, 30, 30], [30, 30, 30, 30, 30, 30, 30, 30], [30, 30, 30, 30, 30, 30, 30, 30]]]
 
@@ -62,7 +65,7 @@ for depth in blocks:
     z += 1
     startingY = 1.0
     startingZ += 1
-
+#Makes outline and goal box on field
 blockType = 35
 mc.setBlock(1.0, 0.0, 26.0, blockType)
 mc.setBlock(2.0, 0.0, 26.0, blockType)
